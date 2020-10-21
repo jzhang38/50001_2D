@@ -1,0 +1,3 @@
+include ':JavaCode'
+include ':app'
+rootProject.name = "2DProject"
