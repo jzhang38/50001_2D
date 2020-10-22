@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 */
-
+import java.util.ArrayList;
 import sat.env.*;
 import sat.formula.*;
 import java.io.*;
@@ -27,7 +27,6 @@ public class SATSolverTest {
         Scanner sc = new Scanner(file);
         while (sc.next().charAt(0) == 'c') sc.nextLine();
         sc.next();
-
         int n_v = sc.nextInt(); //number of variables
         int n_c = sc.nextInt();//number of clauses
         Formula f = new Formula();
@@ -41,6 +40,7 @@ public class SATSolverTest {
             }
             f = f.addClause(c);
         }
+        sc.close();
         System.out.println("SAT solver starts!!!");
         long started = System.nanoTime();
         Environment env = SATSolver.solve(f);
@@ -57,15 +57,15 @@ public class SATSolverTest {
                 sb.append(i);
                 sb.append(":");
                 Bool b = env.get(new Variable(Integer.toString(i)));
-                //sb.append(b == Bool.FALSE ? "FALSE" : "TRUE");
-                sb.append(b);
+                sb.append(b == Bool.FALSE ? "FALSE" : "TRUE");
                 sb.append('\n');
             }
             writer.write(sb.toString());
             writer.close();
         }
     }
-	
+
+
     public void testSATSolver1(){
     	// (a v b)
     	Environment e = SATSolver.solve(makeFm(makeCl(a,b))	);
