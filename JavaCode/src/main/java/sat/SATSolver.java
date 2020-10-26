@@ -22,7 +22,6 @@ public class SATSolver {
      *         null if no such environment exists.
      */
     public static Environment solve(Formula formula) {
-        // TODO: implement this.
         return solve(formula.getClauses(), new Environment());
     }
 
@@ -39,7 +38,6 @@ public class SATSolver {
      *         or null if no such environment exists.
      */
     private static Environment solve(ImList<Clause> clauses, Environment env) {
-        // TODO: implement this.
         if (clauses.isEmpty()) return env;
         Clause smallest = clauses.first();
         for (Clause c : clauses) {
@@ -83,7 +81,6 @@ public class SATSolver {
      */
     private static ImList<Clause> substitute(ImList<Clause> clauses,
             Literal l) {
-        // TODO: implement this.
         ImList<Clause> res = new EmptyImList<Clause>();
         for (Clause c: clauses){
             c = c.reduce(l);

@@ -1,10 +1,5 @@
 package sat;
-/*
-import static org.junit.Assert.*;
 
-import org.junit.Test;
-*/
-import java.util.ArrayList;
 import sat.env.*;
 import sat.formula.*;
 import java.io.*;
@@ -19,16 +14,13 @@ public class SATSolverTest {
     Literal nc = c.getNegation();
 
 
-
-	
-	// TODO: add the main method that reads the .cnf file and calls SATSolver.solve to determine the satisfiability
     public static void main(String[] args) throws Exception{
         File file = new File(args[0]);
         Scanner sc = new Scanner(file);
         while (sc.next().charAt(0) == 'c') sc.nextLine();
         sc.next();
         int n_v = sc.nextInt(); //number of variables
-        int n_c = sc.nextInt();//number of clauses
+        int n_c = sc.nextInt(); //number of clauses
         Formula f = new Formula();
         for (int i = 0; i < n_c; i++){
             int literalNumber = sc.nextInt();
